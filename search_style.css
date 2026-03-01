@@ -20,17 +20,23 @@
 }
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;          
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .property-card {
+    flex: 0 1 calc(33.333% - 20px); 
+    
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-sizing: border-box;
     transition-duration: 0.4s;
 }
 
@@ -90,14 +96,11 @@
         font-size: 14px;
     }
 
-    .cards {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-        padding: 0 20px;
-    }
-
     .property-card {
-        margin-bottom: 10px;
+        flex: 0 1 100% !important;
+    }
+    .cards {
+        padding: 0 20px;
     }
 
     .property-card:hover,
