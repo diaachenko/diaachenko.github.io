@@ -123,8 +123,8 @@ footer {
         display: grid; 
         grid-template-columns: 1fr auto; 
         align-items: center;
-        padding: 0 30px;
-        column-gap: 60px; 
+        padding: 0 20px;
+        column-gap: 170px; 
         row-gap: 8px;
     }
 
@@ -153,4 +153,5 @@ footer {
         padding-top: 150px !important; 
     }
 }
+
 
