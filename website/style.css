@@ -98,7 +98,6 @@ footer {
     .logo:hover, .logo-img,
     button:hover {
         transform: none !important;
-        color: #061B38 !important; 
     }
 
     @keyframes button-pulse {
@@ -153,6 +152,7 @@ footer {
         padding-top: 150px !important; 
     }
 }
+
 
 
 
