@@ -100,15 +100,13 @@ footer {
         transform: none !important;
     }
 
-    @keyframes button-pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(0.95); opacity: 0.9; }
-        100% { transform: scale(1); }
-    }
-
     button:active {
         animation: button-pulse 0.3s ease-out;
         background-color: #061B38 !important;
+        color: #FFF !important;
+    }
+
+    button:active a {
         color: #FFF !important;
     }
 
@@ -152,6 +150,7 @@ footer {
         padding-top: 150px !important; 
     }
 }
+
 
 
 
