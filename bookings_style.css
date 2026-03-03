@@ -20,7 +20,7 @@
   transform: translateY(2px);
 }
 
-.property-card img {
+.property-card img, .property-card-past img {
     width: 100%;
     border-radius: 8px;
     aspect-ratio: 4/3;
@@ -79,3 +79,4 @@
         animation: button-pulse 0.3s ease-out;
 
 }
+
