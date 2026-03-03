@@ -96,7 +96,7 @@ footer {
 @media (max-width: 768px) {
     nav a:hover, 
     .logo:hover, .logo-img,
-    button:hover {
+    button:hover, a:hover {
         transform: none !important;
     }
 
@@ -152,6 +152,7 @@ footer {
         padding-top: 150px !important; 
     }
 }
+
 
 
 
