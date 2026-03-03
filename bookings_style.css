@@ -1,15 +1,20 @@
 .cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;          
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .property-card, .property-card-past {
+    flex: 0 1 calc(33.333% - 20px); 
     background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-sizing: border-box;
     transition-duration: 0.4s;
 }
 
@@ -78,6 +83,7 @@
         color: white !important;
         animation: button-pulse 0.3s ease-out;
 }
+
 
 
 
