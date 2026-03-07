@@ -1,0 +1,126 @@
+.booking-search-container { margin-bottom: 50px; }
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    gap: 15px;
+}
+
+.search-icon { color: #888; margin-left: 10px; }
+
+#bookingSearch {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;          
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.property-card {
+    flex: 0 1 calc(33.333% - 20px); 
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+    transition-duration: 0.4s;
+}
+
+.property-card:hover {
+    box-shadow: 0 0px 0px rgba(0,0,0,0.05);
+  transform: translateY(2px);
+}
+
+.property-card img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.05);
+    transition-duration: 0.4s;
+}
+
+.property-card:hover img {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .search-wrapper {
+        display: flex;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        background: white;
+        border-radius: 25px;
+        padding: 5px 8px 5px 15px;
+        margin-top: 30px;
+
+    }
+
+    #bookingSearch {
+        flex: 1;
+        min-width: 0;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        padding: 10px 5px;
+        background: transparent;
+    }
+
+    .search-button {
+        flex-shrink: 0;
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 20px;
+        margin-left: 5px;
+    }
+
+    .search-icon {
+        flex-shrink: 0;
+        color: #061B38;
+        font-size: 14px;
+    }
+
+    .property-card {
+        flex: 0 1 100% !important;
+    }
+    .cards {
+        padding: 0 20px;
+    }
+
+    .property-card:hover,
+    .property-card:hover img {
+        transform: none !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
+        background-color: white !important;
+    }
+
+    .property-card:active {
+        transform: scale(0.98) !important;
+        background-color: #f0f0f0 !important;
+        transition: 0.1s;
+    }
+
+    .text h2 {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .text {
+        padding-right: 20px;
+    }
+}
