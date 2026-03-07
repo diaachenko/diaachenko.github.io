@@ -8,4 +8,4 @@ The list of the technologies used corresponds with lab works:
 
 This is the 'rent your house for a trip' website. Started as a university necessity and my first step into world of web development,
 it already has became my new passion project.
-Hope it turns out to be great!
+Hope it turns out to be great!!
