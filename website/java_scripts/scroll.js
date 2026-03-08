@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const logo = document.getElementById('logo');
+    const siteLogo = document.getElementById('siteLogo'); 
 
-    if (logo) {
-        logo.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent the default jump to #top which is instant
+    if (siteLogo) {
+        siteLogo.addEventListener('click', (event) => {
+            event.preventDefault(); 
 
             window.scrollTo({
-                top: 0,            // Scroll to the very top of the page
-                behavior: 'smooth' // Make the scrolling animation smooth
+                top: 0,
+                behavior: 'smooth'
             });
         });
     }
