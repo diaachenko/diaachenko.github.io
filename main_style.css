@@ -3,7 +3,7 @@
     min-height: 85vh;
     display: flex;
     align-items: center;
-    margin-top: 70px;
+    padding-top: 10px;
 }
 
 .hero-container {
@@ -27,9 +27,8 @@
 
 @media (max-width: 768px) {
 	.hero-section {
-        margin-top: 110px;
         min-height: auto;
-        padding: 40px 20px;
+        padding-bottom: 20px;
         display: block;
     }
 
