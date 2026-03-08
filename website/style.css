@@ -7,19 +7,27 @@ body {
     margin: 0;
     padding: 0;
     color: #061B38;
+    padding-top: 70px;
+}
+
+body.no-scroll {
+    overflow: hidden;
 }
 
 header {
     position: fixed;
     z-index: 9999;
-    background-color: #5AC1C0;    
+    background-color: #5AC1C0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     width: 100%;
-    transition-duration: 0.4s;
+    transition: box-shadow 0.4s ease-in-out;
     box-shadow: 0 0 0 rgba(0,0,0,0);
+    top: 0;
+    left: 0;
+    padding: 0 20px;
 }
 
 header.scrolled {
@@ -28,10 +36,6 @@ header.scrolled {
 
 .logo {
     margin-left: 170px;
-}
-
-nav {
-    margin-right: 190px;
 }
 
 .logo-img {
@@ -45,14 +49,16 @@ nav {
     transform: scale(1.1);
 }
 
-.hamburger-menu {
-    display: none;
+nav {
+    margin-right: 190px;
+    display: flex;
+    align-items: center;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    align-items: right;
+    align-items: center;
     gap: 70px;
     margin: 0;
     padding: 0;
@@ -72,15 +78,6 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-main {
-    flex: 1;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 20px 60px 20px;
-    box-sizing: border-box;
-}
-
 button {
     background-color: #FCBE3B;
     color: #061B38;
@@ -96,8 +93,67 @@ button {
 button:hover {
     background-color: #061B38;
     color: #FFF;
-    transform: translateY(-6px);
-    transform: scale(1.05);
+    transform: translateY(-6px) scale(1.05);
+}
+
+button:active {
+    animation: button-pulse 0.3s ease-out;
+    background-color: #061B38 !important;
+    color: #FFF !important;
+}
+
+.hamburger-menu {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 10000;
+    margin-right: 25px;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background-color: #FFF;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    background-color: #061B38 !important;
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+    background-color: #061B38 !important;
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.hamburger-menu:active {
+    background-color: transparent !important;
+    animation: none !important;
+}
+
+.hamburger-menu:hover {
+    background-color: transparent !important;
+}
+.hamburger-menu:hover span,
+.hamburger-menu:active span {
+    background-color: #FFF !important;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 60px 20px;
+    box-sizing: border-box;
 }
 
 footer {
@@ -109,10 +165,93 @@ footer {
 }
 
 @media (max-width: 768px) {
-    nav a:hover, 
+    header {
+        height: 70px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        background-color: #5AC1C0;
+    }
+
+    .logo {
+        margin-left: 10px;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    nav {
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger-menu {
+        display: block;
+        margin-left: 0;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #5AC1C0;
+        justify-content: center;
+        align-items: center;
+        z-index: 9998;
+        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    nav ul.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+        border-bottom: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
+
+    nav ul.active li {
+        opacity: 1;
+    }
+    nav ul.active li:nth-child(1) { transition-delay: 0.1s; }
+    nav ul.active li:nth-child(2) { transition-delay: 0.2s; }
+    nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
+
+    nav ul a {
+        color: #061B38;
+        font-size: 1.8em;
+        padding: 10px 20px;
+        display: block;
+        text-align: center;
+    }
+
+    nav ul a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: #FFF;
+        transform: none;
+    }
+
+    main {
+        padding-top: 35px !important;
+    }
+
+    nav a:hover,
     .logo:hover, .logo-img,
-    button:hover, a:hover {
-        transform: none !important;
+    button:hover { 
+        transform: none;
     }
 
     button:active {
@@ -120,51 +259,17 @@ footer {
         background-color: #061B38 !important;
         color: #FFF !important;
     }
-
     button:active a {
         color: #FFF !important;
     }
-
-    header {
-        height: auto; /* Allow header height to adjust to content */
-        flex-direction: column; /* Stack logo and nav vertically */
-        align-items: center; /* Align items to the left when stacked */
-        padding: 10px 20px; /* More padding top/bottom for mobile */
-    }
-
-    .logo {
-        margin-left: 0; /* Reset desktop margin */
-        width: 100%; /* Take full width of header */
-        text-align: left; /* Keep logo text/img left-aligned */
-        padding-bottom: 10px; /* Space between logo and stacked links */
-    }
-    
-    .logo-img {
-        margin: 0; /* Ensure no extra margin on logo image itself */
-        height: 35px; /* Slightly smaller logo for mobile */
-    }
-
-    nav {
-        margin-right: 0; /* Reset desktop margin */
-    }
-
-    nav ul {
-        flex-direction: column; /* THIS IS THE KEY: Stack links vertically */
-        gap: 5px; /* Reduce gap between stacked links */
-        align-items: flex-end; /* Align links to the right within the nav container */
-        padding: 0; /* Remove any default ul padding */
-    }
-
-    nav a {
-        font-size: 16px; /* Slightly smaller font size for mobile links */
-        padding: 5px 0; /* Add vertical padding for easier tapping */
-    }
-
     nav a:active {
         color: #fff !important;
+        transform: scale(1.1);
     }
+}
 
-    main {
-        padding-top: 190px !important; 
-    }
+@keyframes button-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
 }
