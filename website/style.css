@@ -9,6 +9,34 @@ body {
     color: #061B38;
 }
 
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 nav {
     position: fixed;
     width: 100%;
@@ -100,6 +128,10 @@ footer {
         transform: none !important;
     }
 
+     .hamburger-menu {
+        display: block;
+    }
+
     button:active {
         animation: button-pulse 0.3s ease-out;
         background-color: #061B38 !important;
@@ -110,10 +142,16 @@ footer {
         color: #FFF !important;
     }
 
-    nav {
-        position: fixed;
-        height: auto;
-        padding: 15px 0;
+    nav, .nav-links {
+        display: none; /* Hide regular links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: #f8f8f8; /* Background for the dropdown menu */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
     }
 
     nav ul {
