@@ -42,11 +42,13 @@ header.scrolled {
     height: 40px;
     width: auto;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s;
+    transition: filter 0.1s;
 }
 
 .logo:hover .logo-img {
     transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(9%) sepia(77%) saturate(3207%) hue-rotate(202deg) brightness(97%) contrast(98%);
 }
 
 nav {
@@ -66,7 +68,7 @@ nav ul {
 
 nav a {
     display: inline-block;
-    color: #061B38;
+    color: #FFF;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
@@ -74,7 +76,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #FFF;
+    color: #061B38;
     transform: scale(1.1);
 }
 
@@ -117,19 +119,17 @@ button:hover {
 }
 
 .hamburger-menu.active span:nth-child(1) {
-    background-color: #061B38 !important;
     transform: translateY(8px) rotate(45deg);
 }
 .hamburger-menu.active span:nth-child(2) {
     opacity: 0;
 }
 .hamburger-menu.active span:nth-child(3) {
-    background-color: #061B38 !important;
     transform: translateY(-9px) rotate(-45deg);
 }
 
 .hamburger-menu:active {
-    background-color: transparent !important;
+    background-color: none !important;
     animation: none !important;
 }
 
@@ -146,7 +146,7 @@ main {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 20px 60px 20px;
+    padding: 50px 20px 60px 20px;
     box-sizing: border-box;
 }
 
@@ -201,6 +201,7 @@ footer {
         z-index: 9998;
         overflow-y: auto;
         opacity: 0;
+        gap: 10px;
         visibility: hidden;
         transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     }
@@ -225,7 +226,7 @@ footer {
     nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
 
     nav ul a {
-        color: #061B38;
+        color: #FFF;
         font-size: 1.8em;
         padding: 10px 20px;
         display: block;
@@ -243,13 +244,23 @@ footer {
     }
 
     nav a:hover,
-    .logo:hover, .logo-img,
+    .logo:hover .logo-img,
     button:hover { 
         transform: none;
+        filter: none;
+    }
+
+    .logo .logo-img {
+        transition: transform 0.4s;
+        transition: filter 0.1s;
+    }
+
+    .logo:active .logo-img {
+        transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(9%) sepia(77%) saturate(3207%) hue-rotate(202deg) brightness(97%) contrast(98%);
     }
 
     button:active {
-        animation: button-pulse 0.3s ease-out;
         background-color: #061B38 !important;
         color: #FFF !important;
     }
@@ -257,7 +268,7 @@ footer {
         color: #FFF !important;
     }
     nav a:active {
-        color: #fff !important;
+        color: #061B38 !important;
         transform: scale(1.1);
     }
 }

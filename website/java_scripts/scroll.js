@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const siteLogo = document.getElementById('siteLogo'); 
+    const swiitch = document.getElementById('swiitch'); 
 
-    if (siteLogo) {
-        siteLogo.addEventListener('click', (event) => {
+    if (swiitch) {
+        swiitch.addEventListener('click', (event) => {
             event.preventDefault(); 
 
             window.scrollTo({
