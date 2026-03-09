@@ -1,0 +1,98 @@
+[
+  {
+    "image": "images/suite-1.jpg",
+    "alt": "Suite #1",
+    "title": "Appartment in the centre of Lviv",
+    "price": "50$ / night",
+    "description": "This accessible, newly revamped and magnificent flat will definitely level-up your whole life!",
+    "features": [
+      "Three rooms",
+      "Two beds",
+      "Two bathrooms"
+    ]
+  },
+  {
+    "image": "images/suite-2.jpg",
+    "alt": "Suite #2",
+    "title": "Modern Loft in Downtown",
+    "price": "85$ / night",
+    "description": "A stylish, open-concept loft with massive windows overlooking the city skyline. Walking distance to the best cafes and nightlife.",
+    "features": [
+      "High-speed WI-FI",
+      "One bed",
+      "One bathroom"
+    ]
+  },
+  {
+    "image": "images/suite-3.jpg",
+    "alt": "Suite #3",
+    "title": "Cozy Wooden Cabin in the Woods",
+    "price": "120$ / night",
+    "description": "Escape the city noise. This rustic cabin features a real wood-burning fireplace, a wrap-around porch, and is surrounded by hiking trails.",
+    "features": [
+      "Pet friendly",
+      "Two beds",
+      "One bathroom"
+    ]
+  },
+  {
+    "image": "images/suite-4.jpg",
+    "alt": "Suite #4",
+    "title": "Luxury Beachfront Villa",
+    "price": "350$ / night",
+    "description": "Wake up to the sound of the ocean. Includes a private pool, direct beach access, and a spacious outdoor dining area.",
+    "features": [
+      "Private pool",
+      "Four beds",
+      "Three bathrooms"
+    ]
+  },
+  {
+    "image": "images/suite-5.jpg",
+    "alt": "Suite #5",
+    "title": "Minimalist Studio Apartment",
+    "price": "45$ / night",
+    "description": "Perfect for solo travelers or business trips. Clean, quiet, and equipped with a dedicated workspace and espresso machine.",
+    "features": [
+      "Near subway",
+      "One bed",
+      "One bathroom"
+    ]
+  },
+  {
+    "image": "images/suite-6.jpg",
+    "alt": "Suite #6",
+    "title": "Spacious Suburban Family Home",
+    "price": "180$ / night",
+    "description": "Bring the whole family! Features a massive fenced-in backyard, a BBQ grill, a large modern kitchen, and a 2-car garage.",
+    "features": [
+      "Free parking",
+      "Three beds",
+      "Two bathrooms"
+    ]
+  },
+  {
+    "image": "images/suite-7.jpg",
+    "alt": "Suite #7",
+    "title": "Historic City Center Flat",
+    "price": "95$ / night",
+    "description": "Experience the charm of the old city. This 19th-century flat features high ceilings, antique furniture, and a balcony facing the main square.",
+    "features": [
+      "Air conditioning",
+      "Two beds",
+      "One bathroom"
+    ]
+  },
+  {
+    "image": "images/suite-8.jpg",
+    "alt": "Suite #8",
+    "title": "Welcome to Karpaty",
+    "price": "500$ / night",
+    "description": "Experience the charm of the old city. This 19th-century flat features high ceilings, antique furniture, and a balcony facing the main square.",
+    "features": [
+      "Air conditioning",
+      "Two beds",
+      "One bathroom"
+    ]
+  }
+]
