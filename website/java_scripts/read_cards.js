@@ -3,7 +3,7 @@ fetch('json/suites.json')
 	.then(data => {
 		const Container = document.getElementById('cards');
 
-		if (data.length() > 0) {
+		if (data.length > 0) {
 			let i = 0;
 
 			do {
@@ -17,7 +17,7 @@ fetch('json/suites.json')
 
 
 				card.innerHTML = `
-					<img scr="${data[i].image}" alt="${data[i].alt}">
+					<img src="${data[i].image}" alt="${data[i].alt}">
 					<h3>${data[i].title}</h3>
 					<h5>${data[i].price}</h5>
 					<details>
@@ -31,7 +31,7 @@ fetch('json/suites.json')
 				Container.appendChild(card);
 
 				i++;
-			} while (i < data.length());
+			} while (i < data.length);
 		}
 	})
 	.catch(error => console.error('Error:', error));
