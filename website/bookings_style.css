@@ -67,6 +67,21 @@ details.closing .details-container {
     grid-template-rows: 0fr;
 }
 
+.property-card-past details .details-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-out;
+}
+
+.property-card-past details[open] .details-content {
+    grid-template-rows: 1fr;
+}
+
+.details-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
 .property-card img, .property-card-past img {
     width: 100%;
     border-radius: 8px;
@@ -83,6 +98,7 @@ details.closing .details-container {
 
 .status-confirmed { color: #28a745; font-weight: bold; }
 .status-pending { color: #f39c12; font-weight: bold; }
+.status-upcoming { color: #28a745; font-weight: bold;}
 .status-completed { color: #666; font-weight: bold; }
 
 .button-container {
@@ -93,6 +109,25 @@ details.closing .details-container {
 
 .button-cancel:hover { background-color: #651313; }
 
+.button-container button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cancel-btn:hover {
+    background-color: #690914;
+    color: #fff;
+}
+
+.review-btn:hover {
+    background-color: #061B38;
+    color: #FFF;
+}
 
 
 @media (max-width: 768px) {

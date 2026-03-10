@@ -41,7 +41,7 @@ fetch('json/suites.json')
 	            <div class="details-wrapper">    
 	                <details>
 	                    <summary>Details</summary>
-	                    <div class="details-content">
+	                    <div class="details-container">
 	                        <div>
 	                            <p>${suite.description}</p>
 	                            <ul>${featureList}</ul>
