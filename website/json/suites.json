@@ -1,9 +1,13 @@
 [
   {
+    "id": "suite-1",
     "image": "images/suite-1.jpg",
     "alt": "Suite #1",
     "title": "Appartment in the centre of Lviv",
     "price": "50$ / night",
+    "address": "Ploshcha Rynok, 10, Lviv",
+    "lat": 49.8413,
+    "lng": 24.0315,
     "description": "This accessible, newly revamped and magnificent flat will definitely level-up your whole life!",
     "features": [
       "Three rooms",
@@ -12,11 +16,15 @@
     ]
   },
   {
+    "id": "suite-2",
     "image": "images/suite-2.jpg",
     "alt": "Suite #2",
     "title": "Modern Loft in Downtown",
     "price": "85$ / night",
-    "description": "A stylish, open-concept loft with massive windows overlooking the city skyline. Walking distance to the best cafes and nightlife.",
+    "address": "Prospekt Svobody, 28, Lviv",
+    "lat": 49.8440,
+    "lng": 24.0262,
+    "description": "A stylish, open-concept loft with massive windows overlooking the city skyline. Walking distance to the Opera House and nightlife.",
     "features": [
       "High-speed WI-FI",
       "One bed",
@@ -24,11 +32,15 @@
     ]
   },
   {
+    "id": "suite-3",
     "image": "images/suite-3.jpg",
     "alt": "Suite #3",
     "title": "Cozy Wooden Cabin in the Woods",
     "price": "120$ / night",
-    "description": "Escape the city noise. This rustic cabin features a real wood-burning fireplace, a wrap-around porch, and is surrounded by hiking trails.",
+    "address": "Lvivska St, 55, Bryukhovychi",
+    "lat": 49.9015,
+    "lng": 23.9512,
+    "description": "Escape the city noise. This rustic cabin in the Bryukhovychi forest features a real wood-burning fireplace and a wrap-around porch.",
     "features": [
       "Pet friendly",
       "Two beds",
@@ -36,11 +48,15 @@
     ]
   },
   {
+    "id": "suite-4",
     "image": "images/suite-4.jpg",
     "alt": "Suite #4",
-    "title": "Luxury Beachfront Villa",
+    "title": "Luxury Lakefront Villa",
     "price": "350$ / night",
-    "description": "Wake up to the sound of the ocean. Includes a private pool, direct beach access, and a spacious outdoor dining area.",
+    "address": "Bohdana Khmelnytskoho St, 9, Vynnyky",
+    "lat": 49.8225,
+    "lng": 24.1180,
+    "description": "Wake up to the sound of the water. Includes a private pool, direct lake access at Emily Resort, and a spacious outdoor dining area.",
     "features": [
       "Private pool",
       "Four beds",
@@ -48,11 +64,15 @@
     ]
   },
   {
+    "id": "suite-5",
     "image": "images/suite-5.jpg",
     "alt": "Suite #5",
     "title": "Minimalist Studio Apartment",
     "price": "45$ / night",
-    "description": "Perfect for solo travelers or business trips. Clean, quiet, and equipped with a dedicated workspace and espresso machine.",
+    "address": "Stepana Bandery St, 12, Lviv",
+    "lat": 49.8355,
+    "lng": 24.0150,
+    "description": "Perfect for solo travelers. Located near the Polytechnic University, equipped with a dedicated workspace and espresso machine.",
     "features": [
       "Near subway",
       "One bed",
@@ -60,11 +80,15 @@
     ]
   },
   {
+    "id": "suite-6",
     "image": "images/suite-6.jpg",
     "alt": "Suite #6",
     "title": "Spacious Suburban Family Home",
     "price": "180$ / night",
-    "description": "Bring the whole family! Features a massive fenced-in backyard, a BBQ grill, a large modern kitchen, and a 2-car garage.",
+    "address": "Kulparkivska St, 226, Lviv",
+    "lat": 49.8050,
+    "lng": 23.9780,
+    "description": "Bring the whole family! Features a massive fenced-in backyard, a BBQ grill, and easy access to Victoria Gardens mall.",
     "features": [
       "Free parking",
       "Three beds",
@@ -72,11 +96,15 @@
     ]
   },
   {
+    "id": "suite-7",
     "image": "images/suite-7.jpg",
     "alt": "Suite #7",
     "title": "Historic City Center Flat",
     "price": "95$ / night",
-    "description": "Experience the charm of the old city. This 19th-century flat features high ceilings, antique furniture, and a balcony facing the main square.",
+    "address": "Virmenska St, 7, Lviv",
+    "lat": 49.8432,
+    "lng": 24.0305,
+    "description": "Experience the charm of the old city. This 19th-century flat in the Armenian Quarter features high ceilings and antique furniture.",
     "features": [
       "Air conditioning",
       "Two beds",
@@ -84,15 +112,19 @@
     ]
   },
   {
+    "id": "suite-8",
     "image": "images/suite-8.jpg",
     "alt": "Suite #8",
     "title": "Welcome to Karpaty",
     "price": "500$ / night",
-    "description": "Experience the charm of the old city. This 19th-century flat features high ceilings, antique furniture, and a balcony facing the main square.",
+    "address": "Voloshyna St, 2, Slavske",
+    "lat": 48.8475,
+    "lng": 23.4465,
+    "description": "A luxury mountain retreat in the heart of the Carpathians. Breathtaking views, fresh air, and absolute privacy.",
     "features": [
-      "Air conditioning",
-      "Two beds",
-      "One bathroom"
+      "Mountain View",
+      "Sauna",
+      "Fireplace"
     ]
   }
 ]
