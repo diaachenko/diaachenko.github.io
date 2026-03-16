@@ -7,14 +7,10 @@ const getBookedStatus = () => {
     return saved ? JSON.parse(saved) : {};
 };
 
-const saveBookedStatus = (bookedObj) => {
-    localStorage.setItem('bookedSuites', JSON.stringify(bookedObj));
-};
-
 window.bookSuite = function(button, suiteId) {
     const bookedSuites = getBookedStatus();
     bookedSuites[suiteId] = true;
-    saveBookedStatus(bookedSuites);
+    localStorage.setItem('bookedSuites', JSON.stringify(bookedSuites));
     button.classList.add('is-booked');
     button.textContent = 'Booked';
     button.disabled = true;
@@ -56,9 +52,7 @@ const renderCards = (data) => {
 const initMap = () => {
     if (map) return;
     map = L.map('map-container').setView([49.841, 24.031], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap'
-    }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     const bookedSuites = getBookedStatus();
     allSuites.forEach(suite => {
@@ -69,43 +63,39 @@ const initMap = () => {
             marker.bindPopup(`
                 <b>${suite.title}</b><br>${suite.price}<br>
                 <button onclick="bookSuite(this, '${suiteId}')" ${isBooked ? 'disabled' : ''}>
-                    ${isBooked ? 'Booked' : 'Book'}
+                    ${isBooked ? 'Booked' : 'Book Now'}
                 </button>
             `);
         }
     });
 };
 
-function setupToggle() {
-    const btn = document.getElementById('view-toggle-btn');
-    const cardsDiv = document.getElementById('cards');
-    const mapDiv = document.getElementById('map-container');
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'view-toggle-btn') {
+        const btn = e.target;
+        const cardsDiv = document.getElementById('cards');
+        const mapDiv = document.getElementById('map-container');
 
-    if (btn && cardsDiv && mapDiv) {
-        btn.onclick = () => {
-            console.log("Toggle Clicked!");
-            if (!isMapView) {
-                cardsDiv.classList.add('hidden');
-                mapDiv.style.display = 'block';
-                btn.textContent = "Show as Cards";
-                initMap();
-                setTimeout(() => map.invalidateSize(), 200);
-                isMapView = true;
-            } else {
-                cardsDiv.classList.remove('hidden');
-                mapDiv.style.display = 'none';
-                btn.textContent = "Show on Map";
-                isMapView = false;
-            }
-        };
+        if (!isMapView) {
+            cardsDiv.classList.add('hidden');
+            mapDiv.style.display = 'block';
+            btn.textContent = "Show as Cards";
+            initMap();
+            setTimeout(() => map.invalidateSize(), 200);
+            isMapView = true;
+        } else {
+            cardsDiv.classList.remove('hidden');
+            mapDiv.style.display = 'none';
+            btn.textContent = "Show on Map";
+            isMapView = false;
+        }
     }
-}
+});
 
 fetch('json/suites.json')
     .then(res => res.json())
     .then(data => {
         allSuites = data;
         renderCards(data);
-        setupToggle();
     })
-    .catch(err => console.error("Fetch error:", err));
+    .catch(err => console.error("Data loading error:", err));

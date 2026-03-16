@@ -33,6 +33,7 @@
     flex: 0 1 calc(33.333% - 20px);
     background: white;
     padding: 20px;
+    height: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     box-sizing: border-box;
@@ -190,13 +191,13 @@ details.closing .details-container {
 
 #view-toggle-btn {
     position: relative;
-    z-index: 999;
+    z-index: 999 !important;
     cursor: pointer;
     pointer-events: auto !important;
 }
 
 #map-container {
-    height: 500px;
+    height: 600px;
     width: 100%;
     display: none;
     margin-top: 20px;
@@ -204,6 +205,18 @@ details.closing .details-container {
     border: 2px solid #ddd;
 }
 
-.hidden {
-    display: none !important;
+.view-toggle {
+        margin: 20px 0;
+        padding: 10px 20px;
+        background: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+}
+
+.leaflet-popup-content .property-card {
+    border: none;
+    box-shadow: none;
+    width: 200px;
 }
