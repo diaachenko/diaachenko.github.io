@@ -165,6 +165,7 @@ details[open] summary::after {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.4s ease-out;
+    margin-bottom: 20px;
 }
 
 .details-container > div {
@@ -221,4 +222,78 @@ details.closing .details-container {
 
 .hidden {
     display: none !important;  
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    width: 220px !important;
+}
+
+.map-popup-card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 8px;
+    font-family: inherit;
+}
+
+.map-popup-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.map-popup-card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #061B38;
+}
+
+.map-popup-card h5 {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.map-popup-card .book-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.custom-pin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #FCBE3B;
+    border-radius: 50% 50% 50% 0;
+    border: 2px solid #061B38;
+    transform: rotate(-45deg);
+}
+
+.custom-pin::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #061B38;
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+.custom-pin.is-booked-marker {
+    background-color: #061B38;
+    border-color: #FCBE3B;
+}
+
+.custom-pin.is-booked-marker::after {
+    background-color: #FFF;
 }

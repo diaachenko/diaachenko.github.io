@@ -70,16 +70,32 @@ const refreshMarkers = () => {
     allSuites.forEach(suite => {
         const suiteId = suite.id || suite.title;
         const isBooked = bookedSuites[suiteId] === true;
-        
-        const marker = L.marker([suite.lat, suite.lng]);
-        marker.bindPopup(`
-            <div style="width:150px">
-                <b>${suite.title}</b><br>
-                <button onclick="bookSuite(this, '${suiteId}')" ${isBooked ? 'disabled' : ''}>
-                    ${isBooked ? 'Booked' : 'Book Now'}
+
+        const customIcon = L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div class="custom-pin ${isBooked ? 'is-booked-marker' : ''}"></div>`,
+            iconSize: [30, 42],
+            iconAnchor: [15, 42],
+            popupAnchor: [0, -40]
+        });
+
+        const marker = L.marker([suite.lat, suite.lng], { icon: customIcon });
+
+        const popupHTML = `
+            <div class="map-popup-card">
+                <img src="${suite.image}" alt="${suite.alt}">
+                <h3>${suite.title}</h3>
+                <h5>${suite.price}</h5>
+                <button 
+                    class="book-btn ${isBooked ? 'is-booked' : ''}" 
+                    ${isBooked ? 'disabled' : ''} 
+                    onclick="bookSuite(this, '${suiteId}')">
+                    ${isBooked ? 'Booked' : 'Book'}
                 </button>
             </div>
-        `);
+        `;
+
+        marker.bindPopup(popupHTML);
         markerGroup.addLayer(marker);
     });
 };
