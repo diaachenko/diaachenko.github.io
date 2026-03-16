@@ -188,4 +188,22 @@ details.closing .details-container {
     }
 }
 
+#view-toggle-btn {
+    position: relative;
+    z-index: 999;
+    cursor: pointer;
+    pointer-events: auto !important;
+}
 
+#map-container {
+    height: 500px;
+    width: 100%;
+    display: none;
+    margin-top: 20px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+}
+
+.hidden {
+    display: none !important;
+}
