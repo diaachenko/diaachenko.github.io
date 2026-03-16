@@ -8,6 +8,33 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="stylesheet" href="search_style.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+    #map-view {
+        height: 600px;
+        width: 100%;
+        display: none; /* Hidden by default */
+        border-radius: 12px;
+        margin-bottom: 50px;
+    }
+    .view-toggle {
+        margin: 20px 0;
+        padding: 10px 20px;
+        background: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .hidden { display: none !important; }
+    .leaflet-popup-content .property-card {
+        border: none;
+        box-shadow: none;
+        width: 200px;
+    }
+</style>
+
+
 	</head>
 	<body>
 		<div id="top"></div>
@@ -47,12 +74,12 @@
 			<br>
 			<div class="text">
 				<h2>Availible suites</h2>
+				<button id="toggleView" class="view-toggle">Switch to Map View</button>
 			</div>
 			<br>
 			<section>
-				<div id="cards" class="cards">
-						
-				</div>
+				<div id="cards" class="cards"></div>
+				<div id="map-view" class="map-view"></div>
 			</section>
 		</main>
 
@@ -60,6 +87,7 @@
 			<p>© 2026 Homelend</p>
 		</footer>
 
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 	<script src="java_scripts/scroll.js"></script>
 	<script src="java_scripts/shadow.js"></script>
 	<script src="java_scripts/hamburger.js"></script>
