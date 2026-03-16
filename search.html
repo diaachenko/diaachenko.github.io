@@ -10,13 +10,14 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
-    #map-view {
-        height: 600px;
-        width: 100%;
-        display: none; /* Hidden by default */
-        border-radius: 12px;
-        margin-bottom: 50px;
-    }
+	    #map-container {
+	    height: 600px;
+	    width: 100%;
+	    display: none;
+	    border-radius: 15px;
+	    margin: 20px 0;
+	    z-index: 1;
+	}
     .view-toggle {
         margin: 20px 0;
         padding: 10px 20px;
@@ -79,7 +80,7 @@
 			<br>
 			<section>
 				<div id="cards" class="cards"></div>
-				<div id="map-view" class="map-view"></div>
+				<div id="map-container" class="map-container"></div>
 			</section>
 		</main>
 
