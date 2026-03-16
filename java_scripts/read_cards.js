@@ -1,5 +1,6 @@
 let allSuites = [];
 let map = null;
+let markerGroup = null;
 let isMapView = false;
 
 const getBookedStatus = () => {
@@ -50,28 +51,41 @@ const renderCards = (data) => {
 };
 
 const initMap = () => {
-    if (map) return;
-    map = L.map('map-container').setView([49.841, 24.031], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    if (!map) {
+        map = L.map('map-container').setView([49.841, 24.031], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap' 
+        }).addTo(map);
+        markerGroup = L.layerGroup().addTo(map);
+    }
+    refreshMarkers();
+};
 
+const refreshMarkers = () => {
+    if (!markerGroup) return;
+    
+    markerGroup.clearLayers();
     const bookedSuites = getBookedStatus();
+
     allSuites.forEach(suite => {
-        if (suite.lat && suite.lng) {
-            const suiteId = suite.id || suite.title;
-            const isBooked = bookedSuites[suiteId] === true;
-            const marker = L.marker([suite.lat, suite.lng]).addTo(map);
-            marker.bindPopup(`
-                <b>${suite.title}</b><br>${suite.price}<br>
+        const suiteId = suite.id || suite.title;
+        const isBooked = bookedSuites[suiteId] === true;
+        
+        const marker = L.marker([suite.lat, suite.lng]);
+        marker.bindPopup(`
+            <div style="width:150px">
+                <b>${suite.title}</b><br>
                 <button onclick="bookSuite(this, '${suiteId}')" ${isBooked ? 'disabled' : ''}>
                     ${isBooked ? 'Booked' : 'Book Now'}
                 </button>
-            `);
-        }
+            </div>
+        `);
+        markerGroup.addLayer(marker);
     });
 };
 
 document.addEventListener('click', function (e) {
-    if (e.target && e.target.id === 'view-toggle-btn') {
+    if (e.target && e.target.id === 'toggleView') {
         const btn = e.target;
         const cardsDiv = document.getElementById('cards');
         const mapDiv = document.getElementById('map-container');
