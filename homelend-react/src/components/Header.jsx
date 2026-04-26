@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
-import logo from '../assets/logo.svg';
 
 export default function Header({ user }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +29,7 @@ export default function Header({ user }) {
 
   return (
     <header className={isScrolled ? 'scrolled' : ''}>
-      <div className="logo"><a href="/" onClick={(e) => handleNav(e, '/')}><img src={logo} alt="Logo" className="logo-img" /></a></div>
+      <div className="logo"><a href="/" onClick={(e) => handleNav(e, '/')}><img src="/images/logo.svg" alt="Logo" className="logo-img" /></a></div>
       <nav>
         <button className={`hamburger-menu ${isMenuOpen ? 'active' : ''}`} onClick={() => { setIsMenuOpen(!isMenuOpen); document.body.classList.toggle('no-scroll'); }}>
           <span></span><span></span><span></span>

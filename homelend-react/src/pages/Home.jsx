@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import heropage from '../assets/heropage.png';
 import '../styles/main_style.css';
 
 export default function Home() {
@@ -8,7 +7,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-image">
-            <img src={heropage} alt="Homelend Hero" />
+            <img src="/images/heropage.png" alt="Homelend Hero" />
           </div>
           <div className="hero-content">
             <h1>Homelend</h1>
