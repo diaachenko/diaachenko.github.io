@@ -1,0 +1,164 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;          
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.property-card, .property-card-past {
+    flex: 0 1 calc(33.333% - 20px); 
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+    transition-duration: 0.4s;
+    height: auto;
+}
+
+.property-card-past { opacity: 0.7; }
+
+.property-card:hover {
+	box-shadow: 0 0px 0px rgba(0,0,0,0.05);
+  transform: translateY(2px);
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary::after {
+    content: '▶';
+    transition: transform 0.4s;
+    font-size: 0.8rem;
+}
+
+details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+.details-container {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-out;
+}
+
+.details-container > div {
+    min-height: 0;
+    overflow: hidden;
+}
+
+details[open] .details-container {
+    grid-template-rows: 1fr;
+}
+
+details.closing .details-container {
+    grid-template-rows: 0fr;
+}
+
+.property-card-past details .details-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-out;
+}
+
+.property-card-past details[open] .details-content {
+    grid-template-rows: 1fr;
+}
+
+.details-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.property-card img, .property-card-past img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.05);
+    transition-duration: 0.4s;
+}
+
+.property-card:hover img {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transform: translateY(-3px);
+}
+
+.status-confirmed { color: #28a745; font-weight: bold; }
+.status-pending { color: #f39c12; font-weight: bold; }
+.status-upcoming { color: #28a745; font-weight: bold;}
+.status-completed { color: #666; font-weight: bold; }
+
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.button-cancel:hover { background-color: #651313; }
+
+.button-container button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cancel-btn:hover {
+    background-color: #690914;
+    color: #fff;
+}
+
+.review-btn:hover {
+    background-color: #061B38;
+    color: #FFF;
+}
+
+
+@media (max-width: 768px) {
+    .property-card, .property-card-past {
+        flex: 0 1 100% !important;
+    }
+    .cards {
+        padding: 0 20px;
+    }
+
+    .property-card:hover,
+    .property-card:hover img {
+        transform: none !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
+        background-color: white !important;
+    }
+
+    .property-card:active {
+        transform: scale(0.98) !important;
+        background-color: #f0f0f0 !important;
+        transition: 0.1s;
+    }
+
+    .button-cancel:hover {
+        background-color: #FCBE3B !important;
+        color: #061B38 !important;
+        transform: none !important;
+    }
+
+    .button-cancel:active {
+        background-color: #651313 !important;
+        color: white !important;
+        animation: button-pulse 0.3s ease-out;
+}
