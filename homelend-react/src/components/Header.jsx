@@ -39,7 +39,7 @@ export default function Header({ user }) {
           <li><a href="#/bookings" onClick={(e) => handleNav(e, '/bookings')}>My bookings</a></li>
           <li><a href="#/contacts" onClick={(e) => handleNav(e, '/contacts')}>Contact us</a></li>
           {user ? (
-            <li><button onClick={() => signOut(auth)} style={{padding: '8px 15px', background: '#690914', color: 'white'}}>Logout ({user.email.split('@')[0]})</button></li>
+            <li><button onClick={() => signOut(auth)} style={{padding: '8px 15px', background: '#061B38', color: 'white'}}>Logout ({user.email.split('@')[0]})</button></li>
           ) : (
             <li><button onClick={(e) => handleNav(e, '/auth')} style={{padding: '8px 15px'}}>Login</button></li>
           )}

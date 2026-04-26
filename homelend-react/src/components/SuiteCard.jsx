@@ -30,8 +30,12 @@ export default function SuiteCard({ suite, isBooked, onToggleBooking, isBookingP
       ) : (
         <>
           <h5>{suite.price}</h5>
-          <details open={isOpen} onClick={(e) => { e.preventDefault(); setIsOpen(!isOpen); }}>
-            <summary>Details & Reviews</summary>
+          {/* Прибрали onClick з details */}
+          <details open={isOpen}>
+            {/* Додали onClick ТІЛЬКИ на summary */}
+            <summary onClick={(e) => { e.preventDefault(); setIsOpen(!isOpen); }}>
+              Details & Reviews
+            </summary>
             <div className="details-container">
                 <div>
                     <p><strong>Address:</strong> {suite.address}</p>
