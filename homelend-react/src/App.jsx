@@ -4,7 +4,6 @@ import { collection, getDocs, doc, setDoc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from './firebase';
 
-import './styles/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -18,6 +17,7 @@ export default function App() {
   const [suites, setSuites] = useState([]);
   const [bookedSuites, setBookedSuites] = useState({});
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -32,11 +32,12 @@ export default function App() {
             setBookedSuites({});
           }
         } catch (error) {
-          console.error("Помилка завантаження бронювань користувача:", error);
+          console.error("Помилка завантаження бронювань:", error);
         }
       } else {
         setBookedSuites({});
       }
+      setIsLoading(false);
     });
     
     return () => unsubscribe();
@@ -52,15 +53,6 @@ export default function App() {
     };
     fetchSuites();
   }, []);
-
-  const seedDatabase = async () => {
-    try {
-      const res = await fetch('/suites.json');
-      const data = await res.json();
-      for (const item of data) await setDoc(doc(db, "apartments", item.id), item);
-      alert("Дані завантажені! Оновіть сторінку (F5).");
-    } catch (err) { console.error(err); }
-  };
 
   const toggleBooking = async (suiteId) => {
     if (!user) {
@@ -80,7 +72,7 @@ export default function App() {
     try {
       await setDoc(doc(db, "users", user.uid), { bookings: updatedBookings }, { merge: true });
     } catch (error) {
-      console.error("Помилка збереження бронювання у Firebase:", error);
+      console.error("Помилка збереження у Firebase:", error);
     }
   };
 
@@ -88,18 +80,13 @@ export default function App() {
     <>
       <div id="top"></div>
       <Header user={user} />
-      {suites.length === 0 && (
-         <button onClick={seedDatabase} style={{display: 'block', margin: '100px auto'}}>
-           Завантажити JSON у Firebase
-         </button>
-      )}
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search suites={suites} bookedSuites={bookedSuites} toggleBooking={toggleBooking} user={user} />} />
         
-        {/* Захищений маршрут: сюди потраплять тільки залогінені користувачі */}
         <Route path="/bookings" element={
-          <ProtectedRoute user={user}>
+          <ProtectedRoute user={user} isLoading={isLoading}>
             <Bookings suites={suites} bookedSuites={bookedSuites} toggleBooking={toggleBooking} user={user} />
           </ProtectedRoute>
         } />
