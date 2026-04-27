@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { collection, getDocs, doc, setDoc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from './firebase';
 
@@ -56,26 +56,30 @@ export default function App() {
   }, []);
 
   const toggleBooking = async (suiteId) => {
-    if (!user) {
-      alert("Please login to book a suite!");
-      return;
-    }
+  if (!user) {
+    alert("Please login to book a suite!");
+    return;
+  }
 
-    const updatedBookings = { ...bookedSuites };
-    if (updatedBookings[suiteId]) {
-      delete updatedBookings[suiteId];
-    } else {
-      updatedBookings[suiteId] = true;
-    }
+  const updatedBookings = { ...bookedSuites };
+  if (updatedBookings[suiteId]) {
+    delete updatedBookings[suiteId];
+  } else {
+    updatedBookings[suiteId] = true;
+  }
 
-    setBookedSuites(updatedBookings);
+  setBookedSuites(updatedBookings);
 
-    try {
-      await setDoc(doc(db, "users", user.uid), { bookings: updatedBookings }, { merge: true });
-    } catch (error) {
-      console.error("Помилка збереження у Firebase:", error);
-    }
-  };
+  try {
+    await updateDoc(doc(db, "users", user.uid), { 
+      bookings: updatedBookings 
+    });
+  } catch (error) {
+    await setDoc(doc(db, "users", user.uid), { 
+      bookings: updatedBookings 
+    });
+  }
+};
 
   return (
     <>
