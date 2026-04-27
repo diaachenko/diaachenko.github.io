@@ -4,6 +4,7 @@ import { collection, getDocs, doc, setDoc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from './firebase';
 
+import './styles/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
